@@ -2,12 +2,8 @@
 <template>
   <div>
     <h1>Home</h1>
-    <p>
-      Welcome to the Buzz!
-    </p>
-    <p>
-     The project is under development😊
-    </p>
+    <p>Welcome to the Buzz!</p>
+    <p>The project is under development😊</p>
   </div>
 </template>
 
