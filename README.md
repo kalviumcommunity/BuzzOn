@@ -59,4 +59,3 @@ To get a better insight on BuzzOn you can also chekout the ERD and Schema by cli
   
 Thanks for reading. Created by Priyanshi Rana.❤
 
-    
