@@ -24,4 +24,15 @@ export class VerifiedUser extends User {
   }
 }
 
-// const myVerifiedUser = new VerifiedUser(1, "Priyanshi", "password", "email@gmail.com", "happy! happy!", "", new Date(), true, "AAdhar Card", new Date());
+// const myVe21rifiedUser = new VerifiedUser(
+//   1,
+//   'Priyanshi',
+//   'password',
+//   'email@gmail.com',
+//   'happy! happy!',
+//   '',
+//   new Date(),
+//   true,
+//   'AAdhar Card',
+//   new Date()
+// )

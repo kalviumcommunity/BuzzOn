@@ -10,4 +10,4 @@ export class Follower {
   }
 }
 
-// const follower = new Follower(1, 1);
+// const follower = new Follower(1, 1)
