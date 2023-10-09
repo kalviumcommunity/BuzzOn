@@ -42,6 +42,21 @@ export class User {
     this.registrationDate = registrationDate
   }
 
+  cleanUp(): void {
+    if (typeof this.userName !== 'string') {
+      this.userName = ''
+    }
+    if (typeof this.email !== 'string') {
+      this.email = ''
+    }
+    if (typeof this.password !== 'string') {
+      this.password = ''
+    }
+    if (typeof this.bio !== 'string') {
+      this.bio = ''
+    }
+  }
+
   // Defining various methods
   createPost(
     postId: number,
@@ -61,6 +76,7 @@ export class User {
     this.posts.push(newPost)
     return newPost
   }
+
   deletePost(postId: number): void {
     const index = this.posts.findIndex((post) => post.postId === postId)
     this.posts.splice(index, 1)
@@ -148,12 +164,14 @@ export class User {
   }
 }
 
-// const newUser = new User(
-//   1,
-//   'Priyanshi',
-//   'password',
-//   'email@gmail.com',
-//   'happy! happy!',
-//   '',
-//   new Date()
-// )
+const newUser = new User(
+  1,
+  'Priyanshi',
+  'password',
+  'email@gmail.com',
+  'happy! happy!',
+  '',
+  new Date()
+)
+
+newUser.cleanUp()
