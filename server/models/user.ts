@@ -6,6 +6,10 @@ import { Post } from './post'
 import { Comment } from './comment'
 import { Follower } from './follower'
 
+// const db = require('./db')
+
+// Example function to retrieve user by ID
+
 export class User {
   userId: number
   userName: string
