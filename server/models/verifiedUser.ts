@@ -1,16 +1,38 @@
-export class
-VerifiedUser{
-  verificationuserId: number;
-  userId: number;
-  verficationStatus: boolean;
-  verificationDocument: string;
-  verficaitonDate: Date;
+import { User } from './user'
 
-  constructor(verificationuserId:number, userId: number,verficationStatus: boolean, verificationDocument: string, verficaitonDate: Date) {
-    this.verificationuserId = verificationuserId;
-    this.userId = userId;
-    this.verficationStatus = verficationStatus;
-    this.verificationDocument = verificationDocument;
-    this.verficaitonDate = verficaitonDate;
+export class VerifiedUser extends User {
+  verficationStatus: boolean
+  verificationDocument: string
+  verficaitonDate: Date
+
+  constructor(
+    userId: number,
+    userName: string,
+    password: string,
+    email: string,
+    bio: string,
+    profilePic: string,
+    registrationDate: Date,
+    verficationStatus: boolean,
+    verificationDocument: string,
+    verficaitonDate: Date
+  ) {
+    super(userId, userName, password, email, bio, profilePic, registrationDate)
+    this.verficationStatus = verficationStatus
+    this.verificationDocument = verificationDocument
+    this.verficaitonDate = verficaitonDate
   }
 }
+
+// const myVe21rifiedUser = new VerifiedUser(
+//   1,
+//   'Priyanshi',
+//   'password',
+//   'email@gmail.com',
+//   'happy! happy!',
+//   '',
+//   new Date(),
+//   true,
+//   'AAdhar Card',
+//   new Date()
+// )
