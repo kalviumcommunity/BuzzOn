@@ -25,4 +25,17 @@ export class Post {
   }
 }
 
-// const newPost = new Post(1, 1, 'post Image', 'This is a post', [], [])
+let newPost: null | Post = new Post(
+  1,
+  1,
+  'post Image',
+  'This is a post',
+  [],
+  []
+)
+
+// By setting newPost to null, we're dereferencing the object, making it eligible for garbage collection.
+// This is analogous to deallocating memory in languages with manual memory management.
+newPost = null
+
+console.log(newPost)
