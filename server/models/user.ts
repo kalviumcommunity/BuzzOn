@@ -13,7 +13,6 @@ import { Follower } from './follower'
 export class User {
   userId: number
   userName: string
-  password: string
   email: string
   bio: string
   profilePic: string
@@ -30,6 +29,7 @@ export class User {
   following: Follower[] = []
 
   private static userCount: number = 0
+  private password: string
   constructor(
     userId: number,
     userName: string,
@@ -68,6 +68,15 @@ export class User {
   }
 
   // Defining various methods
+
+  getMaskedPassword(): string {
+    return '****'
+  }
+
+  setPassword(newPassword: string): void {
+    this.password = newPassword
+  }
+
   createTextPost(
     postId: number,
     content: string,

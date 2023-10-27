@@ -62,17 +62,17 @@ export class ImagePost extends Post {
   }
 }
 
-// let newPost: null | Post = new Post(
-//   1,
-//   1,
-//   'post Image',
-//   'This is a post',
-//   [],
-//   []
-// )
+let newPost: null | Post = new TextPost(
+  1,
+  1,
+  'post Image',
+  [],
+  [],
+  'This is a new Post'
+)
 
 // By setting newPost to null, we're dereferencing the object, making it eligible for garbage collection.
 // This is analogous to deallocating memory in languages with manual memory management.
-// newPost = null
+newPost = null
 
-// console.log(newPost)
+console.log(newPost)
