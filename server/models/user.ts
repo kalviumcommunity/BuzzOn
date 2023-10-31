@@ -11,8 +11,8 @@ import { Follower } from './follower'
 // Example function to retrieve user by ID
 
 export class User {
-  userId: number
-  userName: string
+  private userId: number
+  private userName: string
   email: string
   bio: string
   profilePic: string
@@ -69,12 +69,23 @@ export class User {
 
   // Defining various methods
 
-  getMaskedPassword(): string {
-    return '****'
+  changePassword(oldPassword: string, newPassword: string): boolean {
+    if (this.validatePassword(oldPassword)) {
+      this.password = newPassword
+      return true
+    }
+    return false
   }
 
-  setPassword(newPassword: string): void {
-    this.password = newPassword
+  // Private method to validate password (not accessible from outside the class)
+  private validatePassword(password: string): boolean {
+    return this.password === password
+  }
+
+  // Private method to securely set the password
+  private setPassword(password: string) {
+    // You can add more logic here, for example: hashing the password
+    this.password = password
   }
 
   createTextPost(
