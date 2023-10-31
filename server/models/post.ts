@@ -21,6 +21,8 @@ abstract class Post {
     this.comments = comments
   }
 
+  abstract displayContent(): void
+
   // Defining verious methods
   addLike(userId: number) {
     if (!this.postLikes.includes(userId)) {
@@ -90,7 +92,7 @@ class VideoPost extends Post {
     this.videoUrl = videoUrl
   }
 
-  displayPost() {
+  displayContent() {
     console.log(`Playing video from URL: ${this.videoUrl}`)
   }
 }
