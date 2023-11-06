@@ -28,6 +28,7 @@ export class User {
   followers: Follower[] = []
   following: Follower[] = []
 
+  private static userCount: number = 0
   constructor(
     userId: number,
     userName: string,
@@ -44,6 +45,10 @@ export class User {
     this.bio = bio
     this.profilePic = profilePic
     this.registrationDate = registrationDate
+  }
+
+  public static howManyUsers(): number {
+    return User.userCount
   }
 
   cleanUp(): void {
