@@ -29,7 +29,7 @@ To get a better insight on BuzzOn you can also chekout the ERD and Schema by cli
 |Role-Based Access Control- creating roles|✅|
 |Advanced SQL Queries - Joins, subqueries|✅|
 |Indexing and query optimization| |
-|Transaction Control Language commands| |
+|Transaction Control Language commands|✅|
 |Database Security and Authorization| |
 |Schema Evolution and Version Control| |
 

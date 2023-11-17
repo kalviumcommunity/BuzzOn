@@ -2,7 +2,7 @@ import { Like } from './likes/like'
 import { Postlikes } from './likes/like.post'
 import { Commentlikes } from './likes/like.comment'
 import { Message } from './message'
-import { Post } from './post'
+import { ImagePost, TextPost } from './post'
 import { Comment } from './comment'
 import { Follower } from './follower'
 
@@ -19,7 +19,8 @@ export class User {
   profilePic: string
   registrationDate: Date
   // Defining arrays to store posts, comments, likes, messages, followers and following
-  posts: Post[] = []
+  textPosts: TextPost[] = []
+  imagePosts: ImagePost[] = []
   comments: Comment[] = []
   likes: Like[] = []
   postLikes: Postlikes[] = []
@@ -67,44 +68,72 @@ export class User {
   }
 
   // Defining various methods
-  createPost(
+  createTextPost(
     postId: number,
-    postImage: string,
     content: string,
     likes: [],
-    comments: []
+    comments: [],
+    contentText: string
   ) {
-    const newPost = new Post(
+    const newTextPost = new TextPost(
       postId,
       this.userId,
-      postImage,
       content,
       likes,
-      comments
+      comments,
+      contentText
     )
-    this.posts.push(newPost)
-    return newPost
+    this.textPosts.push(newTextPost)
+    return newTextPost
   }
 
-  deletePost(postId: number): void {
-    const index = this.posts.findIndex((post) => post.postId === postId)
-    this.posts.splice(index, 1)
+  createImagetPost(
+    postId: number,
+    content: string,
+    likes: [],
+    comments: [],
+    imageUrl: string
+  ) {
+    const newImagePost = new ImagePost(
+      postId,
+      this.userId,
+      content,
+      likes,
+      comments,
+      imageUrl
+    )
+    this.imagePosts.push(newImagePost)
+    return newImagePost
+  }
+
+  deleteTextPost(postId: number): void {
+    const index = this.textPosts.findIndex(
+      (textPosts) => textPosts.postId === postId
+    )
+    this.textPosts.splice(index, 1)
+  }
+
+  deleteImagePost(postId: number): void {
+    const index = this.imagePosts.findIndex(
+      (imagePosts) => imagePosts.postId === postId
+    )
+    this.imagePosts.splice(index, 1)
   }
 
   writeComment(
     commentId: number,
-    post: Post,
+    imagePosts: ImagePost,
     content: string,
     likes: []
   ): Comment {
     const newComment = new Comment(
       commentId,
       this.userId,
-      post.postId,
+      imagePosts.postId,
       content,
       likes
     )
-    post.comments.push(newComment)
+    imagePosts.comments.push(newComment)
     this.comments.push(newComment)
     return newComment
   }
@@ -116,7 +145,7 @@ export class User {
     this.comments.splice(index, 1)
   }
 
-  likePost(likeId: number, post: Post, date: Date): Postlikes {
+  likeImagePost(likeId: number, post: ImagePost, date: Date): Postlikes {
     const newLike = new Postlikes(likeId, post.postId, this.userId, date)
     post.postLikes.push(newLike)
     this.postLikes.push(newLike) // Push the new Postlikes object to the likes array

@@ -1,7 +1,6 @@
-export class Post {
+abstract class Post {
   postId: number
   userId: number
-  postImage: string
   content: string
   date: Date
   postLikes: Array<any>
@@ -10,14 +9,12 @@ export class Post {
   constructor(
     postId: number,
     userId: number,
-    postImage: string,
     content: string,
-    postLikes: [],
-    comments: []
+    postLikes: any[],
+    comments: any[]
   ) {
     this.postId = postId
     this.userId = userId
-    this.postImage = postImage
     this.content = content
     this.date = new Date()
     this.postLikes = postLikes
@@ -25,17 +22,57 @@ export class Post {
   }
 }
 
-let newPost: null | Post = new Post(
-  1,
-  1,
-  'post Image',
-  'This is a post',
-  [],
-  []
-)
+export class TextPost extends Post {
+  contentText: string
+
+  constructor(
+    postId: number,
+    userId: number,
+    content: string,
+    postLikes: any[],
+    comments: any[],
+    contentText: string
+  ) {
+    super(postId, userId, content, postLikes, comments)
+    this.contentText = contentText
+  }
+
+  displayContent() {
+    console.log(this.contentText)
+  }
+}
+
+export class ImagePost extends Post {
+  imageUrl: string
+
+  constructor(
+    postId: number,
+    userId: number,
+    content: string,
+    postLikes: any[],
+    comments: any[],
+    imageUrl: string
+  ) {
+    super(postId, userId, content, postLikes, comments)
+    this.imageUrl = imageUrl
+  }
+
+  displayContent() {
+    console.log(`Displaying image from URL: ${this.imageUrl}`)
+  }
+}
+
+// let newPost: null | Post = new Post(
+//   1,
+//   1,
+//   'post Image',
+//   'This is a post',
+//   [],
+//   []
+// )
 
 // By setting newPost to null, we're dereferencing the object, making it eligible for garbage collection.
 // This is analogous to deallocating memory in languages with manual memory management.
-newPost = null
+// newPost = null
 
-console.log(newPost)
+// console.log(newPost)
