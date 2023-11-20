@@ -1,7 +1,7 @@
 abstract class Post {
   postId: number
-  userId: number
   content: string
+  userId: number
   date: Date
   postLikes: Array<any>
   comments: Array<any>
@@ -19,6 +19,20 @@ abstract class Post {
     this.date = new Date()
     this.postLikes = postLikes
     this.comments = comments
+  }
+
+  abstract displayContent(): void
+
+  // Defining verious methods
+  addLike(userId: number) {
+    if (!this.postLikes.includes(userId)) {
+      this.postLikes.push(userId)
+    }
+  }
+
+  // Encapsulating the logic to add a comment
+  addComment(comment: string) {
+    this.comments.push(comment)
   }
 }
 
@@ -62,17 +76,38 @@ export class ImagePost extends Post {
   }
 }
 
-// let newPost: null | Post = new Post(
-//   1,
-//   1,
-//   'post Image',
-//   'This is a post',
-//   [],
-//   []
-// )
+// In the future, if I want to add support for video posts, I an not required to modify the existing classes. I just add a new class instead:
+class VideoPost extends Post {
+  videoUrl: string
+
+  constructor(
+    postId: number,
+    userId: number,
+    content: string,
+    postLikes: any[],
+    comments: any[],
+    videoUrl: string
+  ) {
+    super(postId, userId, content, postLikes, comments)
+    this.videoUrl = videoUrl
+  }
+
+  displayContent() {
+    console.log(`Playing video from URL: ${this.videoUrl}`)
+  }
+}
+
+let newPost: null | Post = new VideoPost(
+  1,
+  1,
+  'post video',
+  [],
+  [],
+  'This is a new Post'
+)
 
 // By setting newPost to null, we're dereferencing the object, making it eligible for garbage collection.
 // This is analogous to deallocating memory in languages with manual memory management.
-// newPost = null
+newPost = null
 
-// console.log(newPost)
+console.log(newPost)
