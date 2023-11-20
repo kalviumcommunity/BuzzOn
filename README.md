@@ -23,12 +23,12 @@ To get a better insight on BuzzOn you can also chekout the ERD and Schema by cli
 |Milestrone|Completion status|
 |----------|---------------|
 |Schema & ERD|✅|
-|Relational Data Model and Normalization|✅|
+|Relational Data Model and Normalization| |
 |DDL commands- create,alter,drop|✅|
 |DML commands-select,insert,update,delete|✅|
 |Role-Based Access Control- creating roles|✅|
 |Advanced SQL Queries - Joins, subqueries|✅|
-|Indexing and query optimization| |
+|Indexing and query optimization|✅|
 |Transaction Control Language commands|✅|
 |Database Security and Authorization| |
 |Schema Evolution and Version Control| |
@@ -43,15 +43,11 @@ To get a better insight on BuzzOn you can also chekout the ERD and Schema by cli
 |Dynamic memory allocation|✅|
 |Encapsulation and Abstraction| |
 |Indexing and query optimization| |
-|Inheritance| |
-|Abstract class| |
+|Inheritance|✅|
+|Abstract class|✅|
 |Interface| |
 |Templates| |
-|The Single Responsibility Principle| |
-|The Open-Closed Principle| |
-|The Liskov Substitution Principle| |
-|The Interface Segregation Principle| |
-|The Dependency Inversion Principle| |
+|SOLID Principle|✅|
 |Design pattern| |
 
 Thanks for reading. Created by Priyanshi Rana.❤
